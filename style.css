@@ -61,6 +61,12 @@ h1{
 	margin: 10px;
 }
 
+#time, #count{
+	background: black;
+    box-shadow: inset -2px -2px 1px #2b2b2b;
+    height: 25px;
+    width: 59.8px;
+}
 
 #count, #time{
 	text-align: center;
@@ -109,8 +115,8 @@ h1{
 
 .button {
   background-color: rgba(35,23,71,0.52);
-  color: red;
-  border: 2px solid #23174785;
+  color: #D00060;
+  border: 2px solid rgba(35,23,71,0.52);
   webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   height: 40px;
@@ -122,7 +128,7 @@ h1{
 
 .button:hover {
   background-color: transparent;
-  color: #FF00F8;
+  color: #D76F35;
   cursor: pointer;
 }
 

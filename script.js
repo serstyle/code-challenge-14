@@ -50,7 +50,7 @@ function handleClick(e){
 	if(object.cardArr.length === 2){ //check if two cards are selected
 		if(card1.textContent === e.target.nextSibling.textContent){ //if there is a match between 2 cards
 			object.matches += 1
-			if(object.matches === 12){ // FOR THE WIN FIX THE MATCHES TO 12
+			if(object.matches === 3){ // FOR THE WIN FIX THE MATCHES TO 12
 				document.getElementById('modal_win').classList.remove('show_off');
 				document.getElementById('modal_win').classList.add('show_on');
 				document.getElementById('score').innerHTML = 'SCORE: ' + (object.count + 1);
@@ -106,8 +106,16 @@ play_again.addEventListener('click', handleRetry )
 //TIME 
 
 function time() {
-object.time += 1	
-document.getElementById('time').textContent = object.time;
+object.time += 1
+if(object.time < 10){	
+	document.getElementById('time').textContent = '00'+object.time;
+}
+else if(object.time < 100){
+	document.getElementById('time').textContent = '0'+object.time;
+}
+else{
+	document.getElementById('time').textContent = object.time;
+}
 setTimeout('time()',1000);
 }
 
