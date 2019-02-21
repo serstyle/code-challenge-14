@@ -63,7 +63,7 @@ h1{
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: space-between;
-	margin: 10px;
+	margin: 15px;
 }
 
 #time, #count{
@@ -263,5 +263,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#221240', end
 	display: grid;
 	grid-template-columns: repeat(4, 80px);
 	grid-template-rows: repeat(6, 80px);
+	}
+}
+
+@media screen and (max-height: 700px ){
+	h1{
+		display: none;
 	}
 }
