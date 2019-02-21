@@ -2,7 +2,7 @@
 body{
 	height: 100vh;
 	margin:0;
-	background-image: url('background.jpg');
+	background-image: url('/images/background.jpg');
 	font-family: "ALARM CLOCK", monospace;
 	background-repeat: no-repeat;
   background-attachment: fixed;
@@ -15,19 +15,19 @@ body{
   font-family: 'SEGA LOGO FONT';
   font-style: normal;
   font-weight: normal;
-  src: local('SEGA LOGO FONT'), url('SEGA.woff') format('woff');
+  src: local('SEGA LOGO FONT'), url('/font/SEGA.woff') format('woff');
 }
 
 @font-face {
  font-family: "ALARM CLOCK";
- src: url("alarm_clock.ttf") format("truetype")
+ src: url("/font/alarm_clock.ttf") format("truetype")
 }
 
 h1{
 	font-family: 'SEGA LOGO FONT';
 	font-weight: 150;
    color: white;  /* Fallback: assume this color ON TOP of image */
-   background: url(backgroundFont.jpg)  center;
+   background: url(/images/backgroundFont.jpg)  center;
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
    font-size: 4rem;
@@ -35,6 +35,7 @@ h1{
 }
 
 .containerTest{
+	height: 100vh;
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -207,7 +208,7 @@ button:focus {outline:0;}
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
 	cursor:pointer;
-   background-image: url('backCard2.jpg');
+   background-image: url('/images/backCard2.jpg');
    background-size: 120px;
 
 }
