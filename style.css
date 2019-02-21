@@ -27,14 +27,17 @@ h1{
    text-transform: uppercase;
 }
 
-
-.container{
-	background-color: rgba(0,0,0,0.3);
+.containerTest{
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
+}
+
+.container{
+	background-color: rgba(0,0,0,0.3);
+	
 	border-radius: 5px;
 	box-shadow: 1px 1px 75px #970093;
 	box-shadow: inset 0px 12px 25px #970093;
@@ -145,8 +148,35 @@ button:focus {outline:0;}
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.8s;
+  transition: transform 0.5s ease-in-out;
   transform-style: preserve-3d;
+}
+
+@keyframes scale{
+	50%{
+		-webkit-transform: scale(1.05);
+		transform: scale(1.05);
+	}
+	100%{
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
+@-webkit-keyframes scale{
+	50%{
+		-webkit-transform: scale(1.05);
+		transform: scale(1.05);
+	}
+	100%{
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
+.flip-card-front:hover{
+	-webkit-animation: scale 0.4s ease;
+	animation: : scale 0.4s ease;
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
