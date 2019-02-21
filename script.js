@@ -1,19 +1,15 @@
 let arr = ['🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻','🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻']
 
 const boardGame = document.querySelector('#board_game');
-const counter = document.getElementById('count');
 
+const randomizeCard = dom =>{ 
+	let random = Math.floor(Math.random()*(arr.length));
+	dom.innerHTML = arr.splice(random, 1);
+}
 
-// let card = document.createElement('div');
-// card.className = 'flip-card';
-// let card_inner = document.createElement('div');
-// card_inner.className = 'flip-card-inner';
-// let card_front = document.createElement('div');
-// card_front.className = 'flip-card-front'
+const length = arr.length;
 
-
-
-for(let i = 0; i < 24; i++){
+for(let i = 0; i < (length); i++){ //create the card's div
 	let card = document.createElement('div');
 	card.className = 'flip-card';
 	let card_inner = document.createElement('div');
@@ -22,14 +18,16 @@ for(let i = 0; i < 24; i++){
 	card_front.className = 'flip-card-front'
 	let card_back = document.createElement('div');
 	card_back.className = 'flip-card-back';
-	let random = Math.floor(Math.random()*(arr.length));
-	card_back.innerHTML = arr.splice(random, 1);
+	randomizeCard(card_back);
 	boardGame.appendChild(card).appendChild(card_inner);
 	card_inner.appendChild(card_front);
 	card_inner.appendChild(card_back);
 }
 
 
+
+
+const counter = document.getElementById('count');
 
 
 boardGame.addEventListener('click', handleClick);
@@ -49,8 +47,8 @@ function handleClick(e){
 		object.cardArr.push(e.target.nextSibling);
 		targetCard.classList.add('flip-card-click')
 
-	if(object.cardArr.length === 2){
-		if(card1.textContent === e.target.nextSibling.textContent){
+	if(object.cardArr.length === 2){ //check if two cards are selected
+		if(card1.textContent === e.target.nextSibling.textContent){ //if there is a match between 2 cards
 			object.matches += 1
 			if(object.matches === 1){ // FOR THE WIN FIX THE MATCHES TO 12
 				document.getElementById('modal_win').classList.remove('show_off');
@@ -60,7 +58,7 @@ function handleClick(e){
 			}
 			object.cardArr = [];
 		}
-		else{
+		else{ //else no match turn back both cards
 			setTimeout(function(){
 				card1.parentElement.parentElement.classList.remove('flip-card-click');
 				targetCard.classList.remove('flip-card-click');
@@ -95,8 +93,7 @@ function handleRetry(e){
 	object.cardArr = []
 	arr = ['🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻','🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻']
 	setTimeout(function(){for(let i = 0; i < 24; i++){
-		let random = Math.floor(Math.random()*(arr.length));
-		newCard[i].innerHTML = arr.splice(random, 1);
+		randomizeCard(newCard[i])
 	}}, 700 ) //RANDOM THE EMOJI'S PLACE
 }
 

@@ -2,7 +2,7 @@ body{
 	height: 100vh;
 	margin:0;
 	background-image: url('background.jpg');
-	font-family: 'Source Code Pro', monospace;
+	font-family: "ALARM CLOCK", monospace;
 	background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center; 
@@ -14,6 +14,11 @@ body{
   font-style: normal;
   font-weight: normal;
   src: local('SEGA LOGO FONT'), url('SEGA.woff') format('woff');
+}
+
+@font-face {
+ font-family: "ALARM CLOCK";
+ src: url("alarm_clock.ttf") format("truetype")
 }
 
 h1{
@@ -37,18 +42,19 @@ h1{
 
 .container{
 	background-color: rgba(0,0,0,0.3);
-	
 	border-radius: 5px;
 	box-shadow: 1px 1px 75px #970093;
 	box-shadow: inset 0px 12px 25px #970093;
-	color: white;
+	color: #a5ff00;
 }
 
 h1{
 	text-align: center;
+	text-shadow: 5px 10px 75px #62229442;
 }
 
 #header_board_game{
+	font-size: 1.5rem;
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: space-between;
@@ -72,16 +78,12 @@ h1{
 #modal_win{
 	transition: all 0.7s;
 	position: absolute;
-/*	top: 50%;
-	left: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);*/
 	z-index: 1;
 }
 
 #modal_win div{
-    color: white;
-    font-size: 1.5rem;
+	font-size: 1.5em;
+    color: #a5ff00;
     display: flex;
     /* justify-content: center; */
     position: relative;
@@ -106,20 +108,21 @@ h1{
 }
 
 .button {
-  background-color: rgba(93,33,81,0.6);
-  color: white;
-  border: 2px solid #241F2B;
+  background-color: #23174785;
+  color: red;
+  border: 2px solid #23174785;
   webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   height: 40px;
   width: 140px;
   border-radius: 6px;
-  font-family: 'Source Code Pro', monospace;
+  font-family: "ALARM CLOCK", monospace;
+  font-size: 20px;
 }
 
 .button:hover {
   background-color: transparent;
-  color: white;
+  color: #FF00F8;
   cursor: pointer;
 }
 
