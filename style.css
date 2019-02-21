@@ -2,6 +2,10 @@ body{
 	height: 100vh;
 	margin:0;
 	background-image: url('background.jpg');
+	font-family: 'Source Code Pro', monospace;
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
 }
 
 @font-face {
@@ -48,6 +52,11 @@ h1{
 	margin: 10px;
 }
 
+
+#count, #time{
+	text-align: center;
+}
+
 #board_game{
 	font-size:6em;
 	margin:6px;
@@ -59,7 +68,6 @@ h1{
 
 #modal_win{
 	transition: all 0.7s;
-	background: black;
 	position: absolute;
 /*	top: 50%;
 	left: 50%;
@@ -82,27 +90,28 @@ h1{
 }
 
 .show_off{
-	opacity: 0;
+	background-color: rgba(0,0,0,0);
 	pointer-events: none;
 	position: absolute;
 	top:-100%;
 }
 
 .show_on{
-    opacity: 0.8;
+    background-color: rgba(0,0,0,0.8);
     height: 100vh;
     width: 100vw;
 }
 
 .button {
-  background-color: #5D2151;
+  background-color: rgba(93,33,81,0.6);
   color: white;
   border: 2px solid #241F2B;
   webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   height: 40px;
-  width: 100px;
+  width: 140px;
   border-radius: 6px;
+  font-family: 'Source Code Pro', monospace;
 }
 
 .button:hover {
@@ -113,6 +122,9 @@ h1{
 
 button:focus {outline:0;}
 
+#retry{
+  align-self: center;
+}
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {

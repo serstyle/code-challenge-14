@@ -55,8 +55,8 @@ function handleClick(e){
 			if(object.matches === 1){ // FOR THE WIN FIX THE MATCHES TO 12
 				document.getElementById('modal_win').classList.remove('show_off');
 				document.getElementById('modal_win').classList.add('show_on');
-				document.getElementById('score').innerHTML = 'Score: ' + (object.count + 1);
-				document.getElementById('timeout').innerHTML = 'You finished the game in ' + object.time + ' secondes';
+				document.getElementById('score').innerHTML = 'SCORE: ' + (object.count + 1);
+				document.getElementById('timeout').innerHTML = 'YOU FINISHED THE GAME IN ' + object.time + ' SEC.';
 			}
 			object.cardArr = [];
 		}
