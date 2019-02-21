@@ -304,8 +304,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#221240', end
 
 @media screen and (-webkit-min-device-pixel-ratio:0) and (max-width: 600px){
 	body{
-	padding: 0;
+	margin-top: :64px;
   	background-size: cover;
-  	height: calc(var(--vh, 1vh)*100);
+  	max-height: calc(var(--vh, 1vh)*100);
   }
 } 
