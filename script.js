@@ -1,4 +1,4 @@
-let arr = ['1','1','2','2','3','3','4','4','5','5','6','6','7','7','8','8','9','9','10','10','11','11','12','12']
+let arr = ['🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻','🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻']
 
 const boardGame = document.querySelector('#board_game');
 const counter = document.getElementById('count');
@@ -38,7 +38,8 @@ boardGame.addEventListener('click', handleClick);
 let object = {
 	count: 0,
 	matches: 0,
-	cardArr: []
+	cardArr: [],
+	time: -1
 }
 
 function handleClick(e){
@@ -49,12 +50,13 @@ function handleClick(e){
 		targetCard.classList.add('flip-card-click')
 
 	if(object.cardArr.length === 2){
-		let test = card1.textContent - e.target.nextSibling.textContent;
-		if(test === 0){
+		if(card1.textContent === e.target.nextSibling.textContent){
 			object.matches += 1
-			if(object.matches === 1){
-				document.getElementById('modal_win').classList.remove('show_off')
-				document.getElementById('modal_win').classList.add('show_on')
+			if(object.matches === 1){ // FOR THE WIN FIX THE MATCHES TO 12
+				document.getElementById('modal_win').classList.remove('show_off');
+				document.getElementById('modal_win').classList.add('show_on');
+				document.getElementById('score').innerHTML = 'Score: ' + (object.count + 1);
+				document.getElementById('timeout').innerHTML = 'You finished the game in ' + object.time + ' secondes';
 			}
 			object.cardArr = [];
 		}
@@ -66,7 +68,7 @@ function handleClick(e){
 			}, 700)
 			
 		}
-		object.count += 1
+		object.count += 1 //FOR THE COUNT OF THE MOVES
 		counter.textContent = object.count
 		}
 	}
@@ -82,19 +84,20 @@ retry.addEventListener('click', handleRetry);
 let newCard = document.getElementsByClassName('flip-card-back')
 
 function handleRetry(e){
+	document.getElementById('modal_win').classList.add('show_off') //if win turn off the modal
 	document.getElementById('modal_win').classList.remove('show_on')
-	document.getElementById('modal_win').classList.add('show_off')
-	object.count = 0;
+	object.count = 0; //score to 0 
+	object.time = -1; //time to 0
 	counter.textContent = object.count;
 	while(document.getElementsByClassName('flip-card-click')[0]){
-		document.getElementsByClassName('flip-card-click')[0].classList.remove('flip-card-click')}
+		document.getElementsByClassName('flip-card-click')[0].classList.remove('flip-card-click')} //turn the cards
 	object.matches = 0;
 	object.cardArr = []
-	arr = ['1','1','2','2','3','3','4','4','5','5','6','6','7','7','8','8','9','9','10','10','11','11','12','12']
+	arr = ['🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻','🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻']
 	setTimeout(function(){for(let i = 0; i < 24; i++){
 		let random = Math.floor(Math.random()*(arr.length));
 		newCard[i].innerHTML = arr.splice(random, 1);
-	}}, 700 )
+	}}, 700 ) //RANDOM THE EMOJI'S PLACE
 }
 
 
@@ -102,3 +105,13 @@ function handleRetry(e){
 
 let play_again = document.getElementById('play_again');
 play_again.addEventListener('click', handleRetry )
+
+//TIME 
+
+function time() {
+object.time += 1	
+document.getElementById('time').textContent = object.time;
+setTimeout('time()',1000);
+}
+
+time()

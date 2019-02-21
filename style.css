@@ -1,18 +1,40 @@
 body{
 	height: 100vh;
 	margin:0;
+	background-image: url('background.jpg');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'SEGA LOGO FONT';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SEGA LOGO FONT'), url('SEGA.woff') format('woff');
+}
+
+h1{
+	font-family: 'SEGA LOGO FONT';
+	font-weight: 150;
+   color: white;  /* Fallback: assume this color ON TOP of image */
+   background: url(backgroundFont.jpg)  center;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-size: 4rem;
+   text-transform: uppercase;
 }
 
 
-
-
 .container{
-	background: #f2f2f2;
+	background-color: rgba(0,0,0,0.3);
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
+	border-radius: 5px;
+	box-shadow: 1px 1px 75px #970093;
+	box-shadow: inset 0px 12px 25px #970093;
+	color: white;
 }
 
 h1{
@@ -23,12 +45,16 @@ h1{
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: space-between;
+	margin: 10px;
 }
 
 #board_game{
+	font-size:6em;
+	margin:6px;
 	display: grid;
 	grid-template-columns: repeat(6, auto);
 	grid-template-rows: repeat(6, auto);
+	grid-gap: 6px;
 }
 
 #modal_win{
@@ -43,19 +69,23 @@ h1{
 }
 
 #modal_win div{
-	color:white;
-	font-size: 1.5rem;
-	display: flex;
-	justify-content: center;
-	position: relative;
-	top: 50%;
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    /* justify-content: center; */
+    position: relative;
+    top: 45%;
+    flex-direction: column;
+    /* left: 50%; */
+    /* align-content: center; */
+    align-items: center
 }
 
 .show_off{
 	opacity: 0;
 	pointer-events: none;
 	position: absolute;
-	top:-20%;
+	top:-100%;
 }
 
 .show_on{
@@ -64,21 +94,41 @@ h1{
     width: 100vw;
 }
 
+.button {
+  background-color: #5D2151;
+  color: white;
+  border: 2px solid #241F2B;
+  webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  height: 40px;
+  width: 100px;
+  border-radius: 6px;
+}
 
+.button:hover {
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
 
+button:focus {outline:0;}
 
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
+	
   background-color: transparent;
   width: 120px;
   height: 120px;
-  border: 1px solid #f1f1f1;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  /*
+  border: 1px solid #f1f1f1;*/
+  perspective: 1000px;
+   /* Remove this if you don't want the 3D effect */
 }
 
 /* This container is needed to position the front and back side */
 .flip-card-inner {
+
   position: relative;
   width: 100%;
   height: 100%;
@@ -94,6 +144,7 @@ h1{
 
 /* Position the front and back side */
 .flip-card-front, .flip-card-back {
+	border-radius:10px;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -102,13 +153,18 @@ h1{
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  background-color: #bbb;
-  color: black;
+	cursor:pointer;
+   background-image: url('backCard2.jpg');
+   background-size: 120px;
+
 }
 
 /* Style the back side */
 .flip-card-back {
-  background-color: dodgerblue;
-  color: white;
+background: #221240; /* Old browsers */
+background: -moz-linear-gradient(top, #221240 0%, #602359 50%, #1f002f 100%, #031d55 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #221240 0%,#602359 50%,#1f002f 100%,#031d55 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #221240 0%,#602359 50%,#1f002f 100%,#031d55 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#221240', endColorstr='#031d55',GradientType=0 ); /* IE6-9 */
   transform: rotateY(180deg);
 }
