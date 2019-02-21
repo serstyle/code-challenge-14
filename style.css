@@ -83,7 +83,7 @@ h1{
 
 #modal_win{
 	transition: all 0.7s;
-	position: absolute;
+	position: fixed;
 	z-index: 1;
 }
 
@@ -99,7 +99,7 @@ h1{
 
 #modal_info{
 	transition: all 0.7s;
-	position: absolute;
+	position: fixed;
 	z-index: 1;
 }
 
