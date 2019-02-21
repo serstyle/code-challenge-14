@@ -1,3 +1,9 @@
+if(!localStorage.count){
+	localStorage.count = 99; //fix the best play at 99, it s like golf you should have less point
+}
+
+document.getElementById('best').textContent = localStorage.count;
+
 let arr = ['🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻','🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻']
 
 const boardGame = document.querySelector('#board_game');
@@ -27,8 +33,12 @@ for(let i = 0; i < (length); i++){ //create the card's div
 
 
 
+
 const counter = document.getElementById('count');
 
+const record = document.getElementById('record');
+
+const modal_win = document.getElementById('modal_win');
 
 boardGame.addEventListener('click', handleClick);
 
@@ -37,8 +47,28 @@ let object = {
 	count: 0,
 	matches: 0,
 	cardArr: [],
-	time: -1
+	time: 0
 }
+
+//TIME 
+const timer = document.getElementById('time');
+function time() {
+if(object.count >= 1){
+	object.time += 1
+	if(object.time < 10){	
+		timer.textContent = '00'+object.time;
+	}
+	else if(object.time < 100){
+		timer.textContent = '0'+object.time;
+	}
+	else{
+		timer.textContent = object.time;
+	}
+}
+setTimeout('time()',1000);
+}
+
+time()
 
 function handleClick(e){
 	let targetCard = e.target.parentElement.parentElement;
@@ -51,8 +81,13 @@ function handleClick(e){
 		if(card1.textContent === e.target.nextSibling.textContent){ //if there is a match between 2 cards
 			object.matches += 1
 			if(object.matches === 3){ // FOR THE WIN FIX THE MATCHES TO 12
-				document.getElementById('modal_win').classList.remove('show_off');
-				document.getElementById('modal_win').classList.add('show_on');
+				if(localStorage.count > object.count + 1){
+					localStorage.count = object.count + 1; //store the best play of user and show it
+					document.getElementById('best').textContent = localStorage.count;
+					record.classList.remove('display')
+				}
+				modal_win.classList.remove('show_off');
+				modal_win.classList.add('show_on');
 				document.getElementById('score').innerHTML = 'SCORE: ' + (object.count + 1);
 				document.getElementById('timeout').innerHTML = 'YOU FINISHED THE GAME IN ' + object.time + ' SEC.';
 			}
@@ -82,11 +117,13 @@ retry.addEventListener('click', handleRetry);
 let newCard = document.getElementsByClassName('flip-card-back')
 
 function handleRetry(e){
-	document.getElementById('modal_win').classList.add('show_off') //if win turn off the modal
-	document.getElementById('modal_win').classList.remove('show_on')
+	record.classList.add('display')
+	modal_win.classList.add('show_off') //if win turn off the modal
+	modal_win.classList.remove('show_on')
 	object.count = 0; //score to 0 
-	object.time = -1; //time to 0
+	object.time = 0; //time to 0
 	counter.textContent = object.count;
+	timer.textContent = '000'
 	while(document.getElementsByClassName('flip-card-click')[0]){
 		document.getElementsByClassName('flip-card-click')[0].classList.remove('flip-card-click')} //turn the cards
 	object.matches = 0;
@@ -94,7 +131,7 @@ function handleRetry(e){
 	arr = ['🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻','🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻']
 	setTimeout(function(){for(let i = 0; i < 24; i++){
 		randomizeCard(newCard[i])
-	}}, 700 ) //RANDOM THE EMOJI'S PLACE
+	}}, 500 ) //RANDOM THE EMOJI'S PLACE
 }
 
 
@@ -103,20 +140,23 @@ function handleRetry(e){
 let play_again = document.getElementById('play_again');
 play_again.addEventListener('click', handleRetry )
 
-//TIME 
 
-function time() {
-object.time += 1
-if(object.time < 10){	
-	document.getElementById('time').textContent = '00'+object.time;
-}
-else if(object.time < 100){
-	document.getElementById('time').textContent = '0'+object.time;
-}
-else{
-	document.getElementById('time').textContent = object.time;
-}
-setTimeout('time()',1000);
+
+
+
+const info = document.getElementsByTagName('img');
+
+info[0].addEventListener('click', handleInfo)
+
+const modal_info = document.getElementById('modal_info');
+
+function handleInfo(){
+	modal_info.classList.remove('show_off');
+	modal_info.classList.add('show_on');
 }
 
-time()
+const understand = document.getElementById('understand');
+understand.addEventListener('click', function(){
+	modal_info.classList.remove('show_on');
+	modal_info.classList.add('show_off');
+})

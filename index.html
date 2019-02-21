@@ -16,13 +16,24 @@
 </head>
 <body>
 	<div id='modal_win' class='show_off'>
-			<div>	
+			<div class='show_win'>	
 				<p>YOU WIN !</p>
-				<button class='button' id='play_again'>PLAY AGAIN !</button>
+				<p id='record' class='display'>NEW RECORD</p>
 				<p id='score'></p>
 				<p id='timeout'></p>
+				<button class='button' id='play_again'>PLAY AGAIN !</button>
 			</div>
 		</div>
+	<div id='modal_info' class='show_off'>
+			<div class='show_info'>	
+				<h3>!-RULES-!</h3>
+				<p>The perfect score is 12 !</p> 
+				<p>Lower your PR is, better you are !</p>
+				<h3>!-HOW IT WORKS ?-!</h3>
+				<p>Just flip a card to start!</p>
+				<button class='button' id='understand'>UNDERSTAND !</button>
+			</div>
+	</div>
 	<div class='containerTest'>
 	<h1>Concentration</h1>
 	<div class="container">	
@@ -30,13 +41,18 @@
 			<div id='header_board_game'>
 				<div>
 					<p>TIME: </p>
-					<p id='time'>0</p>
+					<p id='time'>000</p>
 				</div>
 				<div>
 					<p>MOVES: </p>
 					<p id="count">0</p>
 				</div>
-				<button class='button' id='retry'>RETRY</button>		
+				<div>
+					<p>PR: </p>
+					<p id='best'></p> 
+				</div>
+				<button class='button' id='retry'>RETRY</button>
+				<img alt='icone info' src='/images/icons8-info-squared-filled-50.png'/>		
 			</div>
 		</header>
 		<section id='board_game'>

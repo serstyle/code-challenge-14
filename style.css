@@ -34,6 +34,8 @@ h1{
    -webkit-text-fill-color: transparent;
    font-size: 4rem;
    text-transform: uppercase;
+   text-align: center;
+	text-shadow: 5px 10px 75px #62229442;
 }
 
 .containerTest{
@@ -53,11 +55,6 @@ h1{
 	color: #a5ff00;
 }
 
-h1{
-	text-align: center;
-	text-shadow: 5px 10px 75px #62229442;
-}
-
 #header_board_game{
 	font-size: 1.5rem;
 	display: flex;
@@ -66,16 +63,14 @@ h1{
 	margin: 15px;
 }
 
-#time, #count{
+#time, #count, #best{
 	background: black;
     box-shadow: inset -2px -2px 1px #2b2b2b;
     height: 25px;
     width: 59.8px;
+    text-align: center;
 }
 
-#count, #time{
-	text-align: center;
-}
 
 #board_game{
 	font-size:6rem;
@@ -92,17 +87,38 @@ h1{
 	z-index: 1;
 }
 
-#modal_win div{
+.show_win{
 	font-size: 1.5em;
     color: #a5ff00;
     display: flex;
-    /* justify-content: center; */
     position: relative;
-    top: 45%;
+    top: 25%;
     flex-direction: column;
-    /* left: 50%; */
-    /* align-content: center; */
     align-items: center
+}
+
+#modal_info{
+	transition: all 0.7s;
+	position: absolute;
+	z-index: 1;
+}
+
+.show_info{
+	font-size: 1.5em;
+    color: #a5ff00;
+    display: flex;
+    position: relative;
+    top: 25%;
+    flex-direction: column;
+    align-items: center
+}
+
+h3{
+	color: red;
+}
+
+.display{
+	display: none;
 }
 
 .show_off{
@@ -128,7 +144,7 @@ h1{
   width: 140px;
   border-radius: 6px;
   font-family: "ALARM CLOCK", monospace;
-  font-size: 20px;
+  font-size: 1em;
   -webkit-tap-highlight-color: transparent
 }
 
@@ -142,6 +158,17 @@ button:focus {outline:0;}
 
 #retry{
   align-self: center;
+}
+
+img{
+	position: absolute;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+}
+img:hover{
+	cursor: pointer;
 }
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
@@ -250,7 +277,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#221240', end
 	h1{
 		font-size: 2rem;
 	}
-
+	#retry{
+		width: 100px
+	}
 	.flip-card {
     height: 80px;
     width: 80px
