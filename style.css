@@ -1,4 +1,6 @@
-
+html{
+	background: black;
+}
 body{
 	height: 100vh;
 	margin:0;
@@ -127,6 +129,7 @@ h1{
   border-radius: 6px;
   font-family: "ALARM CLOCK", monospace;
   font-size: 20px;
+  -webkit-tap-highlight-color: transparent
 }
 
 .button:hover {
@@ -143,7 +146,7 @@ button:focus {outline:0;}
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
-	
+	-webkit-tap-highlight-color: transparent;
   background-color: transparent;
   width: 120px;
   height: 120px;
