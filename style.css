@@ -24,6 +24,9 @@ body{
  font-family: "ALARM CLOCK";
  src: url("./font/alarm_clock.ttf") format("truetype")
 }
+p{
+	text-shadow: 0px 0px 6px lime;
+}
 
 h1{
 	font-family: 'SEGA LOGO FONT';
@@ -35,7 +38,7 @@ h1{
    font-size: 4rem;
    text-transform: uppercase;
    text-align: center;
-	text-shadow: 5px 10px 75px #62229442;
+	text-shadow: 0px 0px 75px #62229442;
 }
 
 .containerTest{
@@ -114,7 +117,8 @@ h1{
 }
 
 h3{
-	color: red;
+	color: red;	
+	text-shadow: 0px 0px 6px red;
 }
 
 .display{
@@ -145,7 +149,8 @@ h3{
   border-radius: 6px;
   font-family: "ALARM CLOCK", monospace;
   font-size: 1em;
-  -webkit-tap-highlight-color: transparent
+  -webkit-tap-highlight-color: transparent;
+   text-shadow: 0px 0px 5px #ff022a;
 }
 
 .button:hover {

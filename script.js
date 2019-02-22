@@ -2,7 +2,19 @@ if(!localStorage.count){
 	localStorage.count = 99; //fix the best play at 99, it s like golf you should have less point
 }
 
-document.getElementById('best').textContent = localStorage.count;
+const bestScore = document.getElementById('best');
+
+if(localStorage.count < 10){	
+bestScore.textContent = '00'+localStorage.count;
+}
+else if(localStorage.count < 100){
+bestScore.textContent = '0'+localStorage.count;
+}
+else{
+bestScore.textContent = localStorage.count;
+}
+
+
 
 let arr = ['🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻','🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻']
 
@@ -83,7 +95,15 @@ function handleClick(e){
 			if(object.matches === 3){ // FOR THE WIN FIX THE MATCHES TO 12
 				if(localStorage.count > object.count + 1){
 					localStorage.count = object.count + 1; //store the best play of user and show it
-					document.getElementById('best').textContent = localStorage.count;
+					if(localStorage.count < 10){	
+						bestScore.textContent = '00'+localStorage.count;
+					}
+					else if(localStorage.count < 100){
+						bestScore.textContent = '0'+localStorage.count;
+					}
+					else{
+						bestScore.textContent = localStorage.count;
+					}
 					record.classList.remove('display')
 				}
 				modal_win.classList.remove('show_off');
@@ -102,7 +122,16 @@ function handleClick(e){
 			
 		}
 		object.count += 1 //FOR THE COUNT OF THE MOVES
-		counter.textContent = object.count
+		// counter.textContent = object.count
+		if(object.count < 10){	
+		counter.textContent = '00'+object.count;
+		}
+		else if(object.count < 100){
+		counter.textContent = '0'+object.count;
+		}
+		else{
+		counter.textContent = object.count;
+		}
 		}
 	}
 	
@@ -122,7 +151,7 @@ function handleRetry(e){
 	modal_win.classList.remove('show_on')
 	object.count = 0; //score to 0 
 	object.time = 0; //time to 0
-	counter.textContent = object.count;
+	counter.textContent = '000';
 	timer.textContent = '000'
 	while(document.getElementsByClassName('flip-card-click')[0]){
 		document.getElementsByClassName('flip-card-click')[0].classList.remove('flip-card-click')} //turn the cards
