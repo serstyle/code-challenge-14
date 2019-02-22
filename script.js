@@ -92,7 +92,7 @@ function handleClick(e){
 	if(object.cardArr.length === 2){ //check if two cards are selected
 		if(card1.textContent === e.target.nextSibling.textContent){ //if there is a match between 2 cards
 			object.matches += 1
-			if(object.matches === 3){ // FOR THE WIN FIX THE MATCHES TO 12
+			if(object.matches === 2){ // FOR THE WIN FIX THE MATCHES TO 12
 				if(localStorage.count > object.count + 1){
 					localStorage.count = object.count + 1; //store the best play of user and show it
 					if(localStorage.count < 10){	
@@ -107,6 +107,7 @@ function handleClick(e){
 					record.classList.remove('display')
 				}
 				modal_win.classList.remove('show_off');
+				document.getElementsByClassName('show_win')[0].classList.remove('display');
 				modal_win.classList.add('show_on');
 				document.getElementById('score').innerHTML = 'SCORE: ' + (object.count + 1);
 				document.getElementById('timeout').innerHTML = 'YOU FINISHED THE GAME IN ' + object.time + ' SEC.';
@@ -118,7 +119,7 @@ function handleClick(e){
 				card1.parentElement.parentElement.classList.remove('flip-card-click');
 				targetCard.classList.remove('flip-card-click');
 				object.cardArr = [];
-			}, 700)
+			}, 500)
 			
 		}
 		object.count += 1 //FOR THE COUNT OF THE MOVES
@@ -148,6 +149,7 @@ let newCard = document.getElementsByClassName('flip-card-back')
 function handleRetry(e){
 	record.classList.add('display')
 	modal_win.classList.add('show_off') //if win turn off the modal
+	document.getElementsByClassName('show_win')[0].classList.add('display');
 	modal_win.classList.remove('show_on')
 	object.count = 0; //score to 0 
 	object.time = 0; //time to 0
@@ -160,7 +162,7 @@ function handleRetry(e){
 	arr = ['🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻','🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻']
 	setTimeout(function(){for(let i = 0; i < 24; i++){
 		randomizeCard(newCard[i])
-	}}, 500 ) //RANDOM THE EMOJI'S PLACE
+	}}, 200 ) //RANDOM THE EMOJI'S PLACE
 }
 
 
@@ -173,19 +175,22 @@ play_again.addEventListener('click', handleRetry )
 
 
 
-const info = document.getElementsByTagName('img');
+const info = document.getElementById('button_info');
 
-info[0].addEventListener('click', handleInfo)
+info.addEventListener('click', handleInfo)
 
 const modal_info = document.getElementById('modal_info');
 
-function handleInfo(){
+function handleInfo(){ //show modal info
 	modal_info.classList.remove('show_off');
+	document.getElementsByClassName('show_info')[0].classList.remove('display');
 	modal_info.classList.add('show_on');
 }
 
 const understand = document.getElementById('understand');
-understand.addEventListener('click', function(){
+
+understand.addEventListener('click', function(){ //understand button to show off
 	modal_info.classList.remove('show_on');
+	document.getElementsByClassName('show_info')[0].classList.add('display');
 	modal_info.classList.add('show_off');
 })
