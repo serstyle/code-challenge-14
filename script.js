@@ -147,6 +147,7 @@ retry.addEventListener('click', handleRetry);
 let newCard = document.getElementsByClassName('flip-card-back')
 
 function handleRetry(e){
+	document.getElementById('retry').disabled = true; //turn off retry button to void bug
 	record.classList.add('display')
 	modal_win.classList.add('show_off') //if win turn off the modal
 	document.getElementsByClassName('show_win')[0].classList.add('display');
@@ -160,9 +161,12 @@ function handleRetry(e){
 	object.matches = 0;
 	object.cardArr = []
 	arr = ['🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻','🦊','🐰','🐸','🦁','🐯','🐭','🦄','🐲','🐷','🐺','🐼','🐻']
-	setTimeout(function(){for(let i = 0; i < 24; i++){
-		randomizeCard(newCard[i])
-	}}, 200 ) //RANDOM THE EMOJI'S PLACE
+	setTimeout(function(){
+		for(let i = 0; i < 24; i++){
+			randomizeCard(newCard[i])
+		}
+		document.getElementById('retry').disabled = false; //turn on the button 
+	}, 200 ) //RANDOM THE EMOJI'S PLACE
 }
 
 
