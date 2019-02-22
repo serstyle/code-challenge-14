@@ -92,7 +92,7 @@ function handleClick(e){
 	if(object.cardArr.length === 2){ //check if two cards are selected
 		if(card1.textContent === e.target.nextSibling.textContent){ //if there is a match between 2 cards
 			object.matches += 1
-			if(object.matches === 2){ // FOR THE WIN FIX THE MATCHES TO 12
+			if(object.matches === 12){ // FOR THE WIN FIX THE MATCHES TO 12
 				if(localStorage.count > object.count + 1){
 					localStorage.count = object.count + 1; //store the best play of user and show it
 					if(localStorage.count < 10){	
