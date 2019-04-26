@@ -1,9 +1,15 @@
-Just a little game mobile responsive with Progressive Web App and local storage for the PR.
+## MemoryGame
 
-Time start when there is one mouvement(2 cards flipped).
+- No Framework no libraries.
+- Pure css(expect font...) and js.
+- Time start when there is one mouvement(2 cards flipped).
+- Mobile responsive and local storage for the PR.
+- Progressive Web App, the app work offline and you can download it on your mobile.
 
-Progressive Web App, the app work offline and you can download it on your mobile.
+**Live on :** https://serstyle.github.io/code-challenge-14/
 
-No Framework no libraries.
+## What techs I used 
 
-Pure css(expect font...) and js.
+- HTML CSS Javascript
+- JS DOM 
+- Progressive Web App
